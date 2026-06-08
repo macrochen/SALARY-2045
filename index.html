@@ -724,6 +724,52 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
       </div>
     </div>
 
+    <!-- ══ TAB: Guide ══ -->
+    <div id="tab-guide" class="tab-panel">
+      <div class="card" style="max-width: 800px; margin: 0 auto; padding: 32px;">
+        <div class="card-title" style="font-size: 20px; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;">📘 薪资 2045 (Salary 2045) 使用指南</div>
+        
+        <div style="font-size: 14px; line-height: 1.7; color: var(--text);">
+          <p style="margin-bottom: 20px; font-size: 15px;">欢迎使用 <b>Salary 2045 Portfolio Manager</b>！这是一款专为股息投资者（Dividend Investors）打造的智能化投资组合与被动收入追踪工具。我们的目标是通过数据驱动的预测与智能警告，帮助你实现提前退休的被动收入目标。</p>
+
+          <h3 style="color: var(--blue); margin-top: 32px; margin-bottom: 16px; font-size: 16px;">🌟 核心功能</h3>
+          
+          <div style="margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px; font-weight: 600;">1. 全局概览 (Overview)</h4>
+            <p style="color: var(--muted2); margin-left: 16px;">汇总你的总市值、总盈亏、年化被动收入以及平均月收。同时显示你的“被动收入目标进度”（配合智能目标模拟器），一目了然地预测你需要多少年才能达成设定的财务自由目标。</p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px; font-weight: 600;">2. 持仓管理 (Holdings)</h4>
+            <p style="color: var(--muted2); margin-left: 16px;">记录你拥有的所有股票、ETF以及现金。直观地查看每一支标的的成本、市价、安全得分、股息率 (Dividend Yield) 以及成本收益率 (Yield on Cost)。你可以随时在这里添加、编辑或删除持仓。</p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px; font-weight: 600;">3. 智能股息预测器 (Dividend Predictor)</h4>
+            <p style="color: var(--muted2); margin-left: 16px;">独家特色功能！输入任意美股代码，系统会自动抓取并分析该股票的历史分红数据，计算出 1/5/10/20 年的复合增长率 (CAGR)。基于派息率、连增年数和支付稳定性，为你输出一个 <b>置信度评分 (Confidence Score)</b>，以此评估该股票未来分红的安全性和抗风险能力。</p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px; font-weight: 600;">4. 分散度风险分析 (Diversification)</h4>
+            <p style="color: var(--muted2); margin-left: 16px;">不仅以饼图展示板块分布，还会分析个股集中度带来的风险。如果单只股票占据总资产或总收入的比例过高（例如 >20%），系统会将其标记为“高集中度风险”，提醒你注意资产配置优化。</p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px; font-weight: 600;">5. 智能预警 (Alerts)</h4>
+            <p style="color: var(--muted2); margin-left: 16px;">后台实时扫描你的投资组合，并主动发出通知。包括：单只股票未兑现亏损过大警告、投资组合健康度分析、被动收入目标里程碑达成祝贺、ETF 股息数据异常提示等。</p>
+          </div>
+
+          <h3 style="color: var(--blue); margin-top: 32px; margin-bottom: 16px; font-size: 16px;">💡 主要用途与受众</h3>
+          <ul style="color: var(--muted2); margin-left: 20px; list-style-type: disc; margin-bottom: 32px;">
+            <li style="margin-bottom: 8px;"><b>DGI (Dividend Growth Investing) 投资者：</b>追踪个股连续分红历史，避免陷入“高股息陷阱” (Yield Trap)。</li>
+            <li style="margin-bottom: 8px;"><b>FIRE (财务独立，提前退休) 实践者：</b>通过目标模拟器，清楚地知道按照当前的投入和收益率，还要工作多少年才能靠被动收入覆盖全部生活开支。</li>
+          </ul>
+
+          <p style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center;">祝您投资顺利，早日达成被动收入跨越支出的退休目标！</p>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /content -->
 </div><!-- /main -->
 
@@ -783,6 +829,7 @@ const i18n = {
     "nav.alerts": "Alerts",
     "nav.predictor": "Dividend Predictor",
     "nav.deepdive": "Stock Deep-Dive",
+    "nav.guide": "Guide",
     
     "common.loading": "Loading data...",
     "common.error": "Error",
@@ -948,6 +995,7 @@ const i18n = {
     "nav.alerts": "提醒",
     "nav.predictor": "分红预测",
     "nav.deepdive": "股票深度分析",
+    "nav.guide": "使用指南",
     
     "common.loading": "加载数据中...",
     "common.error": "错误",
@@ -1148,6 +1196,7 @@ const TABS = [
   { id: 'alerts',          nameKey: 'nav.alerts',              icon: '◆' },
   { id: 'predictor',       nameKey: 'nav.predictor',  icon: '◍', special: true },
   { id: 'deepdive',        nameKey: 'nav.deepdive',     icon: '◔', special: true },
+  { id: 'guide',           nameKey: 'nav.guide',               icon: '❓' },
 ];
 
 const SECTOR_COLORS = {
