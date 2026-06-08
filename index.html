@@ -318,8 +318,8 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
 <!-- ── Sidebar ── -->
 <nav class="sidebar">
   <div class="sb-logo">
-    <div class="sb-title">Salary 2045</div>
-    <div class="sb-sub">Portfolio Manager</div>
+    <div class="sb-title" data-i18n="sb.title">Salary 2045</div>
+    <div class="sb-sub" data-i18n="sb.sub">Portfolio Manager</div>
   </div>
   <ul class="nav-list" id="nav-list"></ul>
 </nav>
@@ -327,8 +327,8 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
 <!-- ── Main ── -->
 <div class="main">
   <div class="topbar">
-    <div class="topbar-title" id="topbar-title">Overview</div>
-    <div class="topbar-meta" id="topbar-meta">Loading data...</div>
+    <div class="topbar-title" id="topbar-title" data-i18n="nav.overview">Overview</div>
+    <div style="display:flex; align-items:center; gap:16px"><div class="topbar-meta" id="topbar-meta" data-i18n="common.loading">Loading data...</div><button id="lang-toggle-btn" class="btn btn-ghost" style="padding: 4px 8px; font-size: 11px;" onclick="toggleLang()">🌐 EN/中</button></div>
   </div>
   <div class="content">
 
@@ -337,15 +337,15 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
       <div class="grid-6" id="ov-cards"></div>
       <div class="grid-2">
         <div class="card relative" id="ov-goal-panel">
-          <div class="card-title">Goal Progress — Salary 2045</div>
+          <div class="card-title" data-i18n="card.goal_progress">Goal Progress — Salary 2045</div>
           <div id="ov-goal-body"></div>
         </div>
         <div class="card">
           <div class="card-title" style="display:flex;justify-content:space-between">
-            <span>Portfolio Allocation</span>
+            <span data-i18n="card.portfolio_alloc">Portfolio Allocation</span>
             <span style="display:flex;gap:6px">
-              <button class="pop-ticker" onclick="setAllocMode('value')" id="alm-value">Value</button>
-              <button class="pop-ticker" onclick="setAllocMode('income')" id="alm-income">Income</button>
+              <button class="pop-ticker" onclick="setAllocMode('value')" id="alm-value" data-i18n="btn.value">Value</button>
+              <button class="pop-ticker" onclick="setAllocMode('income')" id="alm-income" data-i18n="btn.income">Income</button>
             </span>
           </div>
           <div style="display:flex;gap:16px;align-items:flex-start;margin-top:12px">
@@ -356,11 +356,11 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
       </div>
       <div class="grid-2">
         <div class="card">
-          <div class="card-title">Upcoming Dividends (est.)</div>
+          <div class="card-title" data-i18n="card.upcoming_div">Upcoming Dividends (est.)</div>
           <div id="ov-upcoming"></div>
         </div>
         <div class="card">
-          <div class="card-title">Annual Income by Holding</div>
+          <div class="card-title" data-i18n="card.annual_income">Annual Income by Holding</div>
           <div class="chart-wrap" style="height:220px"><canvas id="chart-income-bar"></canvas></div>
         </div>
       </div>
@@ -369,31 +369,31 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
     <!-- ══ TAB: Holdings ══ -->
     <div id="tab-holdings" class="tab-panel">
       <div style="display:flex;gap:12px;margin-bottom:16px;align-items:center">
-        <input class="search-input" id="holdings-search" placeholder="Search by ticker, name, or sector..." style="max-width:360px" oninput="filterHoldings()">
+        <input class="search-input" id="holdings-search" data-i18n="ph.search" placeholder="Search by ticker, name, or sector..." style="max-width:360px" oninput="filterHoldings()">
         <span id="holdings-count" style="font-size:12px;color:var(--muted)"></span>
-        <button class="btn btn-blue" style="margin-left:auto;white-space:nowrap" onclick="openAddModal()">&#10133; Add Holding</button>
+        <button class="btn btn-blue" style="margin-left:auto;white-space:nowrap" onclick="openAddModal()" data-i18n="btn.add_holding">&#10133; Add Holding</button>
       </div>
       <div class="card tbl-wrap relative">
         <table id="holdings-table">
           <thead><tr>
-            <th onclick="sortTable('ticker')">Ticker</th>
-            <th onclick="sortTable('sector')">Sector</th>
-            <th onclick="sortTable('shares')" class="text-right">Shares</th>
-            <th onclick="sortTable('currentPrice')" class="text-right">Price</th>
-            <th onclick="sortTable('avgCost')" class="text-right">Avg Cost</th>
-            <th onclick="sortTable('marketValue')" class="text-right">Value</th>
-            <th onclick="sortTable('gainLossPct')" class="text-right">P&amp;L</th>
-            <th onclick="sortTable('annualIncome')" class="text-right">Ann. Income</th>
-            <th onclick="sortTable('yieldOnCost')" class="text-right">YoC</th>
-            <th onclick="sortTable('dividendYield')" class="text-right">Fwd Yield</th>
-            <th onclick="sortTable('payoutRatio')" class="text-right">Payout</th>
-            <th onclick="sortTable('safetyGrade')" style="text-align:center">Safety &#9432;</th>
-            <th onclick="sortTable('beta')" class="text-right">Beta</th>
-            <th onclick="sortTable('fiveYearAvgYield')" class="text-right">5Y Avg Yld</th>
-            <th onclick="sortTable('debtToEquity')" class="text-right">D/E</th>
-            <th onclick="sortTable('divCagr5y')" class="text-right">5Y CAGR</th>
-            <th onclick="sortTable('consecutiveIncreases')" class="text-right">Streak</th>
-            <th style="text-align:center">Actions</th>
+            <th onclick="sortTable('ticker')" data-i18n="th.ticker">Ticker</th>
+            <th onclick="sortTable('sector')" data-i18n="th.sector">Sector</th>
+            <th onclick="sortTable('shares')" class="text-right" data-i18n="th.shares">Shares</th>
+            <th onclick="sortTable('currentPrice')" class="text-right" data-i18n="th.price">Price</th>
+            <th onclick="sortTable('avgCost')" class="text-right" data-i18n="th.avgcost">Avg Cost</th>
+            <th onclick="sortTable('marketValue')" class="text-right" data-i18n="th.value">Value</th>
+            <th onclick="sortTable('gainLossPct')" class="text-right" data-i18n="th.pl">P&amp;L</th>
+            <th onclick="sortTable('annualIncome')" class="text-right" data-i18n="th.ann_income">Ann. Income</th>
+            <th onclick="sortTable('yieldOnCost')" class="text-right" data-i18n="th.yoc">YoC</th>
+            <th onclick="sortTable('dividendYield')" class="text-right" data-i18n="th.fwdyield">Fwd Yield</th>
+            <th onclick="sortTable('payoutRatio')" class="text-right" data-i18n="th.payout">Payout</th>
+            <th onclick="sortTable('safetyGrade')" style="text-align:center" data-i18n="th.safety">Safety &#9432;</th>
+            <th onclick="sortTable('beta')" class="text-right" data-i18n="th.beta">Beta</th>
+            <th onclick="sortTable('fiveYearAvgYield')" class="text-right" data-i18n="th.5yavg">5Y Avg Yld</th>
+            <th onclick="sortTable('debtToEquity')" class="text-right" data-i18n="th.de">D/E</th>
+            <th onclick="sortTable('divCagr5y')" class="text-right" data-i18n="th.5ycagr">5Y CAGR</th>
+            <th onclick="sortTable('consecutiveIncreases')" class="text-right" data-i18n="th.streak">Streak</th>
+            <th style="text-align:center" data-i18n="th.actions">Actions</th>
           </tr></thead>
           <tbody id="holdings-tbody"></tbody>
         </table>
@@ -405,23 +405,23 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
     <div id="tab-diversification" class="tab-panel">
       <div class="grid-2">
         <div class="card">
-          <div class="card-title">Sector Allocation by Value</div>
+          <div class="card-title" data-i18n="card.sector_alloc">Sector Allocation by Value</div>
           <div style="display:flex;gap:16px;align-items:center;margin-top:12px">
             <div style="width:160px;height:160px;flex-shrink:0"><canvas id="chart-sector-donut"></canvas></div>
             <div id="sector-legend" style="flex:1"></div>
           </div>
         </div>
         <div class="card">
-          <div class="card-title">Income Concentration by Sector</div>
+          <div class="card-title" data-i18n="card.income_conc">Income Concentration by Sector</div>
           <div class="chart-wrap" style="height:200px;margin-top:12px"><canvas id="chart-income-sector"></canvas></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Concentration Risk</div>
+        <div class="card-title" data-i18n="card.conc_risk">Concentration Risk</div>
         <div class="tbl-wrap">
           <table><thead><tr>
-            <th>Ticker</th><th class="text-right">Market Value</th><th class="text-right">% Portfolio</th>
-            <th class="text-right">Ann. Income</th><th class="text-right">% Income</th><th>Risk</th>
+            <th data-i18n="th.ticker">Ticker</th><th class="text-right">Market Value</th><th class="text-right" data-i18n="th.pct_portfolio">% Portfolio</th>
+            <th class="text-right" data-i18n="th.ann_income">Ann. Income</th><th class="text-right" data-i18n="th.pct_income">% Income</th><th data-i18n="th.risk">Risk</th>
           </tr></thead>
           <tbody id="conc-tbody"></tbody></table>
         </div>
@@ -429,28 +429,28 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
       <!-- Safety Dashboard -->
       <div class="card mt-12">
         <div class="card-title" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
-          <span>Portfolio Safety Dashboard</span>
-          <span style="font-size:10px;color:var(--muted);font-weight:400;max-width:480px;text-align:right;line-height:1.5;font-style:italic">Heuristic estimate from payout/FCF/debt/coverage/streak. NOT Seeking Alpha's sector-relative grade — use for relative comparison within your portfolio only.</span>
+          <span data-i18n="card.safety_dashboard">Portfolio Safety Dashboard</span>
+          <span style="font-size:10px;color:var(--muted);font-weight:400;max-width:480px;text-align:right;line-height:1.5;font-style:italic"><span data-i18n="safety.disclaimer">Heuristic estimate from payout/FCF/debt/coverage/streak. NOT Seeking Alpha's sector-relative grade — use for relative comparison within your portfolio only.</span></span>
         </div>
         <div class="grid-3" style="margin-top:12px">
           <div class="card" style="background:rgba(255,255,255,0.02)">
-            <div class="card-title">Portfolio Beta</div>
+            <div class="card-title" data-i18n="sd.beta">Portfolio Beta</div>
             <div class="metric-val mono" id="sd-beta" style="color:var(--muted2)">—</div>
-            <div class="metric-sub">vs S&amp;P 500 = 1.00</div>
+            <div class="metric-sub" data-i18n="sd.beta_sub">vs S&amp;P 500 = 1.00</div>
           </div>
           <div class="card" style="background:rgba(255,255,255,0.02)">
-            <div class="card-title">Avg Yield on Cost</div>
+            <div class="card-title" data-i18n="sd.yoc">Avg Yield on Cost</div>
             <div class="metric-val mono" id="sd-yoc">—</div>
-            <div class="metric-sub">Income-weighted avg</div>
+            <div class="metric-sub" data-i18n="sd.yoc_sub">Income-weighted avg</div>
           </div>
           <div class="card" style="background:rgba(255,255,255,0.02)">
-            <div class="card-title">Safety Grade Mix</div>
+            <div class="card-title" data-i18n="sd.grade_mix">Safety Grade Mix</div>
             <div id="sd-grade-summary" style="margin-top:4px"></div>
           </div>
         </div>
         <div class="grid-2" style="margin-top:12px">
           <div>
-            <div class="card-title" style="margin-bottom:8px">Income by Safety Grade</div>
+            <div class="card-title" style="margin-bottom:8px" data-i18n="sd.income_by_grade">Income by Safety Grade</div>
             <div style="height:180px;position:relative"><canvas id="chart-income-grade"></canvas></div>
           </div>
           <div id="sd-grade-legend"></div>
@@ -462,14 +462,14 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
     <div id="tab-income" class="tab-panel">
       <div class="grid-4 mb-12" id="income-cards"></div>
       <div class="card section-gap">
-        <div class="card-title">Monthly Income — Realized & Forecast</div>
+        <div class="card-title" data-i18n="card.monthly_income">Monthly Income — Realized & Forecast</div>
         <div class="chart-wrap" style="height:240px"><canvas id="chart-monthly-income"></canvas></div>
       </div>
       <div class="card">
-        <div class="card-title">Upcoming Payouts (next 90 days, estimated)</div>
+        <div class="card-title" data-i18n="card.upcoming_payouts">Upcoming Payouts (next 90 days, estimated)</div>
         <div class="tbl-wrap">
           <table><thead><tr>
-            <th>Ticker</th><th class="text-right">Est. Amount/Share</th><th class="text-right">Total (owned)</th><th>Month</th><th>Status</th>
+            <th data-i18n="th.ticker">Ticker</th><th class="text-right" data-i18n="th.est_amount">Est. Amount/Share</th><th class="text-right" data-i18n="th.total_owned">Total (owned)</th><th data-i18n="th.month">Month</th><th data-i18n="th.status">Status</th>
           </tr></thead>
           <tbody id="payouts-tbody"></tbody></table>
         </div>
@@ -486,17 +486,17 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
       <div class="grid-2 mb-12">
         <div class="card">
           <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <span id="goals-card-title">Progress to Goal — Salary 2045</span>
-            <button class="btn btn-ghost" style="font-size:11px;padding:4px 10px;white-space:nowrap" onclick="openGoalEditor()">&#9998; Edit Goal</button>
+            <span id="goals-card-title" data-i18n="card.goal_progress">Progress to Goal — Salary 2045</span>
+            <button class="btn btn-ghost" style="font-size:11px;padding:4px 10px;white-space:nowrap" onclick="openGoalEditor()" data-i18n="ge.edit_goal">&#9998; Edit Goal</button>
           </div>
           <div id="goal-editor" style="display:none;margin-bottom:14px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid var(--border2);border-radius:10px">
             <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px">
               <div>
-                <label class="modal-label">Annual Goal ($)</label>
+                <label class="modal-label" data-i18n="ge.annual_goal">Annual Goal ($)</label>
                 <input class="modal-input" id="ge-goal" type="number" min="1" step="100" placeholder="24000">
               </div>
             </div>
-            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Milestones (4 values)</div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px" data-i18n="ge.milestones">Milestones (4 values)</div>
             <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
               <input class="modal-input" id="ge-ms1" type="number" min="1" step="100" placeholder="6000">
               <input class="modal-input" id="ge-ms2" type="number" min="1" step="100" placeholder="12000">
@@ -505,25 +505,25 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
             </div>
             <div style="display:flex;gap:8px;justify-content:flex-end;align-items:center">
               <div id="ge-error" style="font-size:12px;color:var(--red);flex:1"></div>
-              <button class="btn btn-ghost" onclick="closeGoalEditor()">Cancel</button>
-              <button class="btn btn-blue" id="ge-save-btn" onclick="saveGoalSettings()">Save Goal</button>
+              <button class="btn btn-ghost" onclick="closeGoalEditor()" data-i18n="common.cancel">Cancel</button>
+              <button class="btn btn-blue" id="ge-save-btn" onclick="saveGoalSettings()" data-i18n="ge.save">Save Goal</button>
             </div>
           </div>
           <div id="goals-progress-body"></div>
         </div>
         <div class="card">
-          <div class="card-title">Milestones</div>
+          <div class="card-title" data-i18n="card.milestones">Milestones</div>
           <div id="goals-milestones"></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">What-If Simulator</div>
+        <div class="card-title" data-i18n="card.what_if">What-If Simulator</div>
         <div class="grid-2">
           <div>
-            <div class="slider-row"><label>Monthly Contribution</label><input type="range" id="sl-contrib" min="0" max="2000" step="50" value="200" oninput="updateGoalSim()"><span class="slider-val" id="sv-contrib">$200</span></div>
-            <div class="slider-row"><label>Dividend CAGR (%)</label><input type="range" id="sl-divcagr" min="1" max="15" step="0.5" value="7" oninput="updateGoalSim()"><span class="slider-val" id="sv-divcagr">7.0%</span></div>
-            <div class="slider-row"><label>Price CAGR (%)</label><input type="range" id="sl-pricecagr" min="0" max="15" step="0.5" value="5" oninput="updateGoalSim()"><span class="slider-val" id="sv-pricecagr">5.0%</span></div>
-            <div class="slider-row"><label>Years</label><input type="range" id="sl-years" min="1" max="30" step="1" value="15" oninput="updateGoalSim()"><span class="slider-val" id="sv-years">15</span></div>
+            <div class="slider-row"><label data-i18n="sim.contrib">Monthly Contribution</label><input type="range" id="sl-contrib" min="0" max="2000" step="50" value="200" oninput="updateGoalSim()"><span class="slider-val" id="sv-contrib">$200</span></div>
+            <div class="slider-row"><label data-i18n="sim.divcagr">Dividend CAGR (%)</label><input type="range" id="sl-divcagr" min="1" max="15" step="0.5" value="7" oninput="updateGoalSim()"><span class="slider-val" id="sv-divcagr">7.0%</span></div>
+            <div class="slider-row"><label data-i18n="sim.pricecagr">Price CAGR (%)</label><input type="range" id="sl-pricecagr" min="0" max="15" step="0.5" value="5" oninput="updateGoalSim()"><span class="slider-val" id="sv-pricecagr">5.0%</span></div>
+            <div class="slider-row"><label data-i18n="sim.years">Years</label><input type="range" id="sl-years" min="1" max="30" step="1" value="15" oninput="updateGoalSim()"><span class="slider-val" id="sv-years">15</span></div>
             <div id="sim-result" style="margin-top:12px;padding:12px;background:var(--panel);border-radius:8px;font-size:13px"></div>
           </div>
           <div class="chart-wrap" style="height:200px"><canvas id="chart-sim"></canvas></div>
@@ -535,22 +535,22 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
     <div id="tab-performance" class="tab-panel">
       <div class="grid-4 mb-12" id="perf-cards"></div>
       <div class="card section-gap">
-        <div class="card-title">Gain / Loss by Holding</div>
+        <div class="card-title" data-i18n="card.gl_by_holding">Gain / Loss by Holding</div>
         <div class="chart-wrap" style="height:240px"><canvas id="chart-perf-bar"></canvas></div>
       </div>
       <div class="card">
-        <div class="card-title">Performance Detail</div>
+        <div class="card-title" data-i18n="card.perf_detail">Performance Detail</div>
         <div class="tbl-wrap">
           <table><thead><tr>
-            <th onclick="sortPerfTable('ticker')">Ticker</th>
-            <th onclick="sortPerfTable('shares')" class="text-right">Shares</th>
-            <th onclick="sortPerfTable('avgCost')" class="text-right">Avg Cost</th>
-            <th onclick="sortPerfTable('currentPrice')" class="text-right">Price</th>
-            <th onclick="sortPerfTable('marketValue')" class="text-right">Value</th>
-            <th onclick="sortPerfTable('gainLoss')" class="text-right">G/L $</th>
-            <th onclick="sortPerfTable('gainLossPct')" class="text-right">G/L %</th>
-            <th onclick="sortPerfTable('annualIncome')" class="text-right">Ann. Income</th>
-            <th onclick="sortPerfTable('yieldOnCost')" class="text-right">YoC</th>
+            <th onclick="sortPerfTable('ticker')" data-i18n="th.ticker">Ticker</th>
+            <th onclick="sortPerfTable('shares')" class="text-right" data-i18n="th.shares">Shares</th>
+            <th onclick="sortPerfTable('avgCost')" class="text-right" data-i18n="th.avgcost">Avg Cost</th>
+            <th onclick="sortPerfTable('currentPrice')" class="text-right" data-i18n="th.price">Price</th>
+            <th onclick="sortPerfTable('marketValue')" class="text-right" data-i18n="th.value">Value</th>
+            <th onclick="sortPerfTable('gainLoss')" class="text-right" data-i18n="th.gl_dollar">G/L $</th>
+            <th onclick="sortPerfTable('gainLossPct')" class="text-right" data-i18n="th.gl_pct">G/L %</th>
+            <th onclick="sortPerfTable('annualIncome')" class="text-right" data-i18n="th.ann_income">Ann. Income</th>
+            <th onclick="sortPerfTable('yieldOnCost')" class="text-right" data-i18n="th.yoc">YoC</th>
           </tr></thead>
           <tbody id="perf-tbody"></tbody></table>
         </div>
@@ -565,10 +565,10 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
     <!-- ══ TAB: Dividend Predictor ══ -->
     <div id="tab-predictor" class="tab-panel">
       <div class="card mb-12">
-        <div class="card-title">Dividend Predictor — Any Ticker</div>
-        <input class="search-input" id="pred-search" placeholder="Search any ticker (e.g. AAPL, KO, JNJ, O, T...)" oninput="debouncedPredict()" autocomplete="off" style="margin-bottom:10px">
+        <div class="card-title" data-i18n="card.div_predictor">Dividend Predictor — Any Ticker</div>
+        <input class="search-input" id="pred-search" data-i18n="pred.ph" placeholder="Search any ticker (e.g. AAPL, KO, JNJ, O, T...)" oninput="debouncedPredict()" autocomplete="off" style="margin-bottom:10px">
         <div class="popular-tickers">
-          <span style="font-size:11px;color:var(--muted);align-self:center">Popular:</span>
+          <span style="font-size:11px;color:var(--muted);align-self:center" data-i18n="pred.popular">Popular:</span>
           <span class="pop-ticker" onclick="searchPredictor('AAPL')">AAPL</span>
           <span class="pop-ticker" onclick="searchPredictor('O')">O</span>
           <span class="pop-ticker" onclick="searchPredictor('KO')">KO</span>
@@ -580,9 +580,9 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         </div>
       </div>
       <div id="pred-loading" style="display:none;text-align:center;padding:40px;color:var(--muted)">
-        <div class="spinner" style="margin:0 auto 12px"></div>Fetching dividend data...
+        <div class="spinner" style="margin:0 auto 12px"></div><span data-i18n="pred.fetching">Fetching dividend data...</span>
       </div>
-      <div id="pred-error" style="display:none;" class="alert-card alert-red"><div class="alert-icon">⚠</div><div><div class="alert-title" id="pred-error-msg">Error</div></div></div>
+      <div id="pred-error" style="display:none;" class="alert-card alert-red"><div class="alert-icon">⚠</div><div><div class="alert-title" id="pred-error-msg" data-i18n="common.error">Error</div></div></div>
       <div id="pred-results" style="display:none">
         <!-- Row 1: Header card -->
         <div class="card mb-12" id="pred-header-card"></div>
@@ -591,7 +591,7 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         <!-- Row 3: Forecast chart -->
         <div class="card mb-12">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-            <div class="card-title" style="margin:0">12-Month Payout Forecast</div>
+            <div class="card-title" style="margin:0" data-i18n="pred.forecast_chart">12-Month Payout Forecast</div>
             <div id="pred-proj-annual" style="font-size:13px;color:var(--muted2)"></div>
           </div>
           <div class="chart-wrap" style="height:220px"><canvas id="chart-pred-forecast"></canvas></div>
@@ -599,13 +599,13 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         <!-- Row 4: History + Table -->
         <div class="grid-2 mb-12">
           <div class="card">
-            <div class="card-title">Payment History (quarterly)</div>
+            <div class="card-title" data-i18n="pred.history">Payment History (quarterly)</div>
             <div class="chart-wrap" style="height:200px"><canvas id="chart-pred-history"></canvas></div>
           </div>
           <div class="card">
-            <div class="card-title">Predicted Payouts (next 12 quarters)</div>
+            <div class="card-title" data-i18n="pred.predicted">Predicted Payouts (next 12 quarters)</div>
             <div class="tbl-wrap" style="max-height:220px;overflow-y:auto">
-              <table><thead><tr><th>Ex-Date</th><th>Pay Date</th><th class="text-right">Amount</th><th class="text-right">YoY</th><th>Conf.</th></tr></thead>
+              <table><thead><tr><th data-i18n="th.ex_date">Ex-Date</th><th data-i18n="th.pay_date">Pay Date</th><th class="text-right" data-i18n="th.amount">Amount</th><th class="text-right" data-i18n="th.yoy">YoY</th><th data-i18n="th.conf">Conf.</th></tr></thead>
               <tbody id="pred-payout-tbody"></tbody></table>
             </div>
           </div>
@@ -613,13 +613,13 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         <!-- Row 5: Growth + Simulator -->
         <div class="grid-2 mb-12">
           <div class="card">
-            <div class="card-title">Growth &amp; Consistency</div>
+            <div class="card-title" data-i18n="pred.growth">Growth &amp; Consistency</div>
             <div id="pred-growth"></div>
           </div>
           <div class="card">
-            <div class="card-title">Projection Simulator</div>
+            <div class="card-title" data-i18n="pred.simulator">Projection Simulator</div>
             <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
-              <label style="font-size:12px;color:var(--muted2)">Shares owned:</label>
+              <label style="font-size:12px;color:var(--muted2)" data-i18n="pred.shares">Shares owned:</label>
               <input type="number" id="pred-shares" value="100" min="1" max="10000" style="background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:6px 10px;color:var(--text);font-size:13px;width:90px;outline:none" oninput="updatePredSim()">
             </div>
             <div class="grid-3" id="pred-sim-cards" style="gap:8px;margin-bottom:12px"></div>
@@ -628,11 +628,11 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         <!-- Row 6: Safety + Confidence -->
         <div class="grid-2">
           <div class="card">
-            <div class="card-title">Dividend Safety</div>
+            <div class="card-title" data-i18n="pred.safety">Dividend Safety</div>
             <div id="pred-safety"></div>
           </div>
           <div class="card">
-            <div class="card-title" id="pred-conf-title">Confidence Breakdown</div>
+            <div class="card-title" id="pred-conf-title" data-i18n="pred.conf_breakdown">Confidence Breakdown</div>
             <div id="pred-confidence"></div>
           </div>
         </div>
@@ -642,10 +642,10 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
     <!-- ══ TAB: Stock Deep-Dive ══ -->
     <div id="tab-deepdive" class="tab-panel">
       <div class="card mb-12">
-        <div class="card-title">Stock Deep-Dive — Financial Statements &amp; Forward Estimates</div>
-        <input class="search-input" id="dd-search" placeholder="Enter a stock ticker (e.g. MA, ABT, KO, MSFT)..." oninput="debouncedDeepDive()" autocomplete="off" style="margin-bottom:10px">
+        <div class="card-title" data-i18n="card.stock_deepdive">Stock Deep-Dive — Financial Statements &amp; Forward Estimates</div>
+        <input class="search-input" id="dd-search" data-i18n="dd.ph" placeholder="Enter a stock ticker (e.g. MA, ABT, KO, MSFT)..." oninput="debouncedDeepDive()" autocomplete="off" style="margin-bottom:10px">
         <div class="popular-tickers">
-          <span style="font-size:11px;color:var(--muted);align-self:center">Try:</span>
+          <span style="font-size:11px;color:var(--muted);align-self:center" data-i18n="dd.try">Try:</span>
           <span class="pop-ticker" onclick="searchDeepDive('MA')">MA</span>
           <span class="pop-ticker" onclick="searchDeepDive('ABT')">ABT</span>
           <span class="pop-ticker" onclick="searchDeepDive('KO')">KO</span>
@@ -655,39 +655,39 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         </div>
       </div>
       <div id="dd-loading" style="display:none;text-align:center;padding:40px;color:var(--muted)">
-        <div class="spinner" style="margin:0 auto 12px"></div>Fetching financial statements...
+        <div class="spinner" style="margin:0 auto 12px"></div><span data-i18n="dd.fetching">Fetching financial statements...</span>
       </div>
       <div id="dd-error" style="display:none" class="alert-card alert-amber">
         <div class="alert-icon">ℹ</div>
-        <div><div class="alert-title" id="dd-error-msg">No financial data available</div>
-        <div class="alert-desc">Financial statements are not available for ETFs or funds (e.g. SCHD, DGRW, IAU). Use the Dividend Predictor tab for ETF analysis.</div></div>
+        <div><div class="alert-title" id="dd-error-msg" data-i18n="dd.error_title">No financial data available</div>
+        <div class="alert-desc"><span data-i18n="dd.error_desc">Financial statements are not available for ETFs or funds (e.g. SCHD, DGRW, IAU). Use the Dividend Predictor tab for ETF analysis.</span></div></div>
       </div>
       <div id="dd-results" style="display:none">
         <div class="card mb-12" id="dd-header"></div>
         <div id="dd-mode-toggle" style="display:flex;gap:8px;margin-bottom:12px">
-          <button class="pop-ticker" id="dd-toggle-annual" onclick="setDDMode('annual')">Annual</button>
-          <button class="pop-ticker" id="dd-toggle-qtr" onclick="setDDMode('quarterly')">Quarterly</button>
+          <button class="pop-ticker" id="dd-toggle-annual" onclick="setDDMode('annual')" data-i18n="btn.annual">Annual</button>
+          <button class="pop-ticker" id="dd-toggle-qtr" onclick="setDDMode('quarterly')" data-i18n="btn.quarterly">Quarterly</button>
         </div>
         <div class="card mb-12" id="dd-chart-card">
           <!-- שורת כפתורי מטריקה -->
           <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
-            <span style="font-size:11px;color:var(--muted);align-self:center">Metric:</span>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-overview"   onclick="setDDMetric('overview')">Overview</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-revenue"    onclick="setDDMetric('revenue')"    style="border-color:var(--blue);color:var(--blue)">Revenue</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-netIncome"  onclick="setDDMetric('netIncome')">Net Income</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-eps"        onclick="setDDMetric('eps')">EPS</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-expenses"   onclick="setDDMetric('expenses')">Expenses</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-fcf"        onclick="setDDMetric('fcf')">Free Cash Flow</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-margin"     onclick="setDDMetric('margin')">Profit Margin</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-growth"       onclick="setDDMetric('growth')">Revenue Growth</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-divGrowth"     onclick="setDDMetric('divGrowth')">Div Growth</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-divPerShare"   onclick="setDDMetric('divPerShare')">Div/Share</button>
-            <button class="pop-ticker dd-metric-btn" id="dd-btn-payoutHistory" onclick="setDDMetric('payoutHistory')">Payout Ratio</button>
+            <span style="font-size:11px;color:var(--muted);align-self:center" data-i18n="dd.metric">Metric:</span>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-overview"   onclick="setDDMetric('overview')" data-i18n="btn.overview">Overview</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-revenue"    onclick="setDDMetric('revenue')"    style="border-color:var(--blue);color:var(--blue)" data-i18n="btn.revenue">Revenue</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-netIncome"  onclick="setDDMetric('netIncome')" data-i18n="btn.net_income">Net Income</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-eps"        onclick="setDDMetric('eps')" data-i18n="btn.eps">EPS</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-expenses"   onclick="setDDMetric('expenses')" data-i18n="btn.expenses">Expenses</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-fcf"        onclick="setDDMetric('fcf')" data-i18n="btn.fcf">Free Cash Flow</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-margin"     onclick="setDDMetric('margin')" data-i18n="btn.margin">Profit Margin</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-growth"       onclick="setDDMetric('growth')" data-i18n="btn.rev_growth">Revenue Growth</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-divGrowth"     onclick="setDDMetric('divGrowth')" data-i18n="btn.div_growth">Div Growth</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-divPerShare"   onclick="setDDMetric('divPerShare')" data-i18n="btn.div_per_share">Div/Share</button>
+            <button class="pop-ticker dd-metric-btn" id="dd-btn-payoutHistory" onclick="setDDMetric('payoutHistory')" data-i18n="btn.payout_ratio">Payout Ratio</button>
           </div>
           <!-- טווח זמן -->
           <div id="dd-range-row" style="display:none;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center">
-            <span style="font-size:11px;color:var(--muted);align-self:center">Range:</span>
-            <button class="pop-ticker dd-range-btn" id="dd-btn-all"  onclick="setDDRange('all')"  style="border-color:var(--blue);color:var(--blue)">All</button>
+            <span style="font-size:11px;color:var(--muted);align-self:center" data-i18n="dd.range">Range:</span>
+            <button class="pop-ticker dd-range-btn" id="dd-btn-all"  onclick="setDDRange('all')"  style="border-color:var(--blue);color:var(--blue)" data-i18n="btn.all">All</button>
             <button class="pop-ticker dd-range-btn" id="dd-btn-5y"   onclick="setDDRange('5y')">5Y</button>
             <button class="pop-ticker dd-range-btn" id="dd-btn-10y"  onclick="setDDRange('10y')">10Y</button>
             <button class="pop-ticker dd-range-btn" id="dd-btn-15y"  onclick="setDDRange('15y')">15Y</button>
@@ -702,13 +702,13 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         <!-- ETF charts — shown only for ETFs -->
         <div id="dd-etf-section" style="display:none">
           <div class="card mb-12">
-            <div class="card-title">Price History — 5 Years Monthly</div>
+            <div class="card-title" data-i18n="dd.etf_price">Price History — 5 Years Monthly</div>
             <div class="chart-wrap" style="height:260px">
               <canvas id="chart-dd-etf-price"></canvas>
             </div>
           </div>
           <div class="card mb-12">
-            <div class="card-title">Dividend per Quarter</div>
+            <div class="card-title" data-i18n="dd.etf_div">Dividend per Quarter</div>
             <div class="chart-wrap" style="height:200px">
               <canvas id="chart-dd-etf-div"></canvas>
             </div>
@@ -716,8 +716,8 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
         </div>
         <div class="card" id="dd-forward-card">
           <div class="card-title" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
-            <span>Forward Estimates</span>
-            <span style="font-size:10px;color:var(--muted);font-weight:400;max-width:500px;text-align:right;line-height:1.5;font-style:italic">Forward estimates limited to current/next year consensus + long-term growth rate. yfinance does not provide full 5-year per-year analyst forecasts; any multi-year line beyond next year is a mathematical projection from the long-term growth rate, not analyst data.</span>
+            <span data-i18n="dd.forward">Forward Estimates</span>
+            <span style="font-size:10px;color:var(--muted);font-weight:400;max-width:500px;text-align:right;line-height:1.5;font-style:italic"><span data-i18n="dd.forward_disclaimer">Forward estimates limited to current/next year consensus + long-term growth rate. yfinance does not provide full 5-year per-year analyst forecasts; any multi-year line beyond next year is a mathematical projection from the long-term growth rate, not analyst data.</span>
           </div>
           <div class="grid-4 mt-12" id="dd-forward"></div>
         </div>
@@ -730,23 +730,23 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
 <!-- ── Holdings CRUD modal ── -->
 <div class="modal-overlay" id="holding-modal">
   <div class="modal">
-    <div class="modal-title" id="modal-title">Add Holding</div>
+    <div class="modal-title" id="modal-title" data-i18n="modal.title">Add Holding</div>
     <div class="modal-field">
-      <label class="modal-label" for="modal-ticker">Ticker</label>
+      <label class="modal-label" for="modal-ticker" data-i18n="modal.ticker">Ticker</label>
       <input class="modal-input" id="modal-ticker" type="text" placeholder="e.g. AAPL" autocomplete="off" style="text-transform:uppercase">
     </div>
     <div class="modal-field">
-      <label class="modal-label" for="modal-shares">Shares</label>
+      <label class="modal-label" for="modal-shares" data-i18n="modal.shares">Shares</label>
       <input class="modal-input" id="modal-shares" type="number" placeholder="e.g. 10" min="0.0001" step="any">
     </div>
     <div class="modal-field">
-      <label class="modal-label" for="modal-avgcost">Avg Cost (USD)</label>
+      <label class="modal-label" for="modal-avgcost" data-i18n="modal.avgcost">Avg Cost (USD)</label>
       <input class="modal-input" id="modal-avgcost" type="number" placeholder="e.g. 150.00" min="0" step="any">
     </div>
     <div id="modal-error" style="font-size:12px;color:var(--red);min-height:16px;margin-top:-4px"></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-blue" id="modal-save-btn" onclick="saveHolding()">Save</button>
+      <button class="btn btn-ghost" onclick="closeModal()" data-i18n="common.cancel">Cancel</button>
+      <button class="btn btn-blue" id="modal-save-btn" onclick="saveHolding()" data-i18n="common.save">Save</button>
     </div>
   </div>
 </div>
@@ -755,21 +755,399 @@ tbody tr { animation: rowFadeIn 0.3s ease forwards; opacity: 0; }
 <div class="toast" id="error-toast"></div>
 
 <script>
+
+// ============================================================================
+// I18N
+// ============================================================================
+const i18n = {
+  en: {
+    // Overview Cards
+    "ov.portfolio_value": "Portfolio Value",
+    "ov.total_gl": "total G/L",
+    "ov.annual_income": "Annual Income",
+    "ov.month_avg": "/month average",
+    "ov.yoc": "Yield on Cost",
+    "ov.cost_basis": "Based on cost basis",
+    "ov.fwd_yield": "Forward Yield",
+    "ov.market_value": "Based on market value",
+    "ov.goal_progress": "Goal Progress",
+    "ov.holdings": "holdings",
+
+    "nav.overview": "Overview",
+    "nav.holdings": "Holdings",
+    "nav.diversification": "Diversification",
+    "nav.income": "Income",
+    "nav.calendar": "Calendar",
+    "nav.goals": "Goals",
+    "nav.performance": "Performance",
+    "nav.alerts": "Alerts",
+    "nav.predictor": "Dividend Predictor",
+    "nav.deepdive": "Stock Deep-Dive",
+    
+    "common.loading": "Loading data...",
+    "common.error": "Error",
+    "common.save": "Save",
+    "common.cancel": "Cancel",
+    
+    "topbar.overview": "Overview",
+    
+    // Sidebar
+    "sb.title": "Salary 2045",
+    "sb.sub": "Portfolio Manager",
+    
+    // Cards
+    "card.goal_progress": "Goal Progress — Salary 2045",
+    "card.portfolio_alloc": "Portfolio Allocation",
+    "btn.value": "Value",
+    "btn.income": "Income",
+    "card.upcoming_div": "Upcoming Dividends (est.)",
+    "card.annual_income": "Annual Income by Holding",
+    "card.sector_alloc": "Sector Allocation by Value",
+    "card.income_conc": "Income Concentration by Sector",
+    "card.conc_risk": "Concentration Risk",
+    "card.safety_dashboard": "Portfolio Safety Dashboard",
+    "card.monthly_income": "Monthly Income — Realized & Forecast",
+    "card.upcoming_payouts": "Upcoming Payouts (next 90 days, estimated)",
+    "card.milestones": "Milestones",
+    "card.what_if": "What-If Simulator",
+    "card.gl_by_holding": "Gain / Loss by Holding",
+    "card.perf_detail": "Performance Detail",
+    "card.div_predictor": "Dividend Predictor — Any Ticker",
+    "card.stock_deepdive": "Stock Deep-Dive — Financial Statements & Forward Estimates",
+    
+    // Holdings table
+    "th.ticker": "Ticker",
+    "th.sector": "Sector",
+    "th.shares": "Shares",
+    "th.price": "Price",
+    "th.avgcost": "Avg Cost",
+    "th.value": "Value",
+    "th.pl": "P&L",
+    "th.ann_income": "Ann. Income",
+    "th.yoc": "YoC",
+    "th.fwdyield": "Fwd Yield",
+    "th.payout": "Payout",
+    "th.safety": "Safety",
+    "th.beta": "Beta",
+    "th.5yavg": "5Y Avg Yld",
+    "th.de": "D/E",
+    "th.5ycagr": "5Y CAGR",
+    "th.streak": "Streak",
+    "th.actions": "Actions",
+    
+    "ph.search": "Search by ticker, name, or sector...",
+    "btn.add_holding": "➕ Add Holding",
+    
+    // Safety Dashboard
+    "safety.disclaimer": "Heuristic estimate from payout/FCF/debt/coverage/streak. NOT Seeking Alpha's sector-relative grade — use for relative comparison within your portfolio only.",
+    "sd.beta": "Portfolio Beta",
+    "sd.beta_sub": "vs S&P 500 = 1.00",
+    "sd.yoc": "Avg Yield on Cost",
+    "sd.yoc_sub": "Income-weighted avg",
+    "sd.grade_mix": "Safety Grade Mix",
+    "sd.income_by_grade": "Income by Safety Grade",
+    
+    // Diversification table
+    "th.pct_portfolio": "% Portfolio",
+    "th.pct_income": "% Income",
+    "th.risk": "Risk",
+    
+    // Upcoming payouts table
+    "th.est_amount": "Est. Amount/Share",
+    "th.total_owned": "Total (owned)",
+    "th.month": "Month",
+    "th.status": "Status",
+    
+    // Goals Editor
+    "ge.edit_goal": "✎ Edit Goal",
+    "ge.annual_goal": "Annual Goal ($)",
+    "ge.milestones": "Milestones (4 values)",
+    "ge.save": "Save Goal",
+    
+    // Simulator
+    "sim.contrib": "Monthly Contribution",
+    "sim.divcagr": "Dividend CAGR (%)",
+    "sim.pricecagr": "Price CAGR (%)",
+    "sim.years": "Years",
+    
+    // Performance Table
+    "th.gl_dollar": "G/L $",
+    "th.gl_pct": "G/L %",
+    
+    // Predictor
+    "pred.ph": "Search any ticker (e.g. AAPL, KO, JNJ, O, T...)",
+    "pred.popular": "Popular:",
+    "pred.fetching": "Fetching dividend data...",
+    "pred.forecast_chart": "12-Month Payout Forecast",
+    "pred.history": "Payment History (quarterly)",
+    "pred.predicted": "Predicted Payouts (next 12 quarters)",
+    "th.ex_date": "Ex-Date",
+    "th.pay_date": "Pay Date",
+    "th.amount": "Amount",
+    "th.yoy": "YoY",
+    "th.conf": "Conf.",
+    "pred.growth": "Growth & Consistency",
+    "pred.simulator": "Projection Simulator",
+    "pred.shares": "Shares owned:",
+    "pred.safety": "Dividend Safety",
+    "pred.conf_breakdown": "Confidence Breakdown",
+    
+    // Deepdive
+    "dd.ph": "Enter a stock ticker (e.g. MA, ABT, KO, MSFT)...",
+    "dd.try": "Try:",
+    "dd.fetching": "Fetching financial statements...",
+    "dd.error_title": "No financial data available",
+    "dd.error_desc": "Financial statements are not available for ETFs or funds (e.g. SCHD, DGRW, IAU). Use the Dividend Predictor tab for ETF analysis.",
+    "btn.annual": "Annual",
+    "btn.quarterly": "Quarterly",
+    "dd.metric": "Metric:",
+    "btn.overview": "Overview",
+    "btn.revenue": "Revenue",
+    "btn.net_income": "Net Income",
+    "btn.eps": "EPS",
+    "btn.expenses": "Expenses",
+    "btn.fcf": "Free Cash Flow",
+    "btn.margin": "Profit Margin",
+    "btn.rev_growth": "Revenue Growth",
+    "btn.div_growth": "Div Growth",
+    "btn.div_per_share": "Div/Share",
+    "btn.payout_ratio": "Payout Ratio",
+    "dd.range": "Range:",
+    "btn.all": "All",
+    "dd.etf_price": "Price History — 5 Years Monthly",
+    "dd.etf_div": "Dividend per Quarter",
+    "dd.forward": "Forward Estimates",
+    "dd.forward_disclaimer": "Forward estimates limited to current/next year consensus + long-term growth rate. yfinance does not provide full 5-year per-year analyst forecasts; any multi-year line beyond next year is a mathematical projection from the long-term growth rate, not analyst data.",
+    
+    // Modal
+    "modal.title": "Add Holding",
+    "modal.ticker": "Ticker",
+    "modal.shares": "Shares",
+    "modal.avgcost": "Avg Cost (USD)",
+  },
+  zh: {
+    // Overview Cards
+    "ov.portfolio_value": "投资组合价值",
+    "ov.total_gl": "总盈亏",
+    "ov.annual_income": "年化收入",
+    "ov.month_avg": "/月 平均",
+    "ov.yoc": "成本收益率 (YoC)",
+    "ov.cost_basis": "基于持仓成本",
+    "ov.fwd_yield": "远期收益率",
+    "ov.market_value": "基于市场价值",
+    "ov.goal_progress": "目标进度",
+    "ov.holdings": "只股票",
+
+    "nav.overview": "概览",
+    "nav.holdings": "持仓",
+    "nav.diversification": "多元化",
+    "nav.income": "收入",
+    "nav.calendar": "日历",
+    "nav.goals": "目标",
+    "nav.performance": "表现",
+    "nav.alerts": "提醒",
+    "nav.predictor": "分红预测",
+    "nav.deepdive": "股票深度分析",
+    
+    "common.loading": "加载数据中...",
+    "common.error": "错误",
+    "common.save": "保存",
+    "common.cancel": "取消",
+    
+    "topbar.overview": "概览",
+    
+    // Sidebar
+    "sb.title": "Salary 2045",
+    "sb.sub": "投资组合管理",
+    
+    // Cards
+    "card.goal_progress": "目标进度 — Salary 2045",
+    "card.portfolio_alloc": "投资组合资产分配",
+    "btn.value": "市值",
+    "btn.income": "收入",
+    "card.upcoming_div": "近期分红（预估）",
+    "card.annual_income": "各持仓年度总收入",
+    "card.sector_alloc": "行业分布（按市值）",
+    "card.income_conc": "行业收入集中度",
+    "card.conc_risk": "集中度风险",
+    "card.safety_dashboard": "投资组合安全性指标",
+    "card.monthly_income": "月度分红收入 — 实际与预测",
+    "card.upcoming_payouts": "即将派息（未来90天预估）",
+    "card.milestones": "里程碑",
+    "card.what_if": "投资收益模拟器",
+    "card.gl_by_holding": "各持仓盈亏状况",
+    "card.perf_detail": "表现明细",
+    "card.div_predictor": "分红预测 — 任意股票",
+    "card.stock_deepdive": "股票深度分析 — 财报与远期预测",
+    
+    // Holdings table
+    "th.ticker": "代码",
+    "th.sector": "板块",
+    "th.shares": "股数",
+    "th.price": "现价",
+    "th.avgcost": "均价",
+    "th.value": "市值",
+    "th.pl": "盈亏",
+    "th.ann_income": "年收入",
+    "th.yoc": "成本收益率",
+    "th.fwdyield": "远期股息率",
+    "th.payout": "派息比",
+    "th.safety": "安全性",
+    "th.beta": "Beta",
+    "th.5yavg": "5年均息",
+    "th.de": "负债权益比",
+    "th.5ycagr": "5年复合增长",
+    "th.streak": "连增年数",
+    "th.actions": "操作",
+    
+    "ph.search": "按代码、名称或板块搜索...",
+    "btn.add_holding": "➕ 添加持仓",
+    
+    // Safety Dashboard
+    "safety.disclaimer": "根据派息率/现金流/债务/连续增长年限得出的启发式估算。并非行业相对评级，仅供您在投资组合内进行相对比较。",
+    "sd.beta": "组合 Beta系数",
+    "sd.beta_sub": "基准: 标普500 = 1.00",
+    "sd.yoc": "平均成本收益率",
+    "sd.yoc_sub": "按收入加权平均",
+    "sd.grade_mix": "安全等级分布",
+    "sd.income_by_grade": "按安全等级划分收入",
+    
+    // Diversification table
+    "th.pct_portfolio": "占组合%",
+    "th.pct_income": "占收入%",
+    "th.risk": "风险程度",
+    
+    // Upcoming payouts table
+    "th.est_amount": "预估金额/股",
+    "th.total_owned": "总计(持有)",
+    "th.month": "月份",
+    "th.status": "状态",
+    
+    // Goals Editor
+    "ge.edit_goal": "✎ 编辑目标",
+    "ge.annual_goal": "年度目标 ($)",
+    "ge.milestones": "里程碑 (4个值)",
+    "ge.save": "保存目标",
+    
+    // Simulator
+    "sim.contrib": "每月定投",
+    "sim.divcagr": "股息复合增长率 (%)",
+    "sim.pricecagr": "价格复合增长率 (%)",
+    "sim.years": "定投年数",
+    
+    // Performance Table
+    "th.gl_dollar": "盈亏金额",
+    "th.gl_pct": "盈亏比例",
+    
+    // Predictor
+    "pred.ph": "搜索任意股票代码 (如 AAPL, KO, JNJ, O, T...)",
+    "pred.popular": "热门搜索:",
+    "pred.fetching": "正在获取分红数据...",
+    "pred.forecast_chart": "未来 12 个月分红预测",
+    "pred.history": "派息历史 (季度)",
+    "pred.predicted": "预测派息 (未来 12 季度)",
+    "th.ex_date": "除息日",
+    "th.pay_date": "派息日",
+    "th.amount": "金额",
+    "th.yoy": "同比增幅",
+    "th.conf": "置信度",
+    "pred.growth": "增长与稳定性",
+    "pred.simulator": "预估模拟器",
+    "pred.shares": "持有股数:",
+    "pred.safety": "分红安全性",
+    "pred.conf_breakdown": "预测置信度分析",
+    
+    // Deepdive
+    "dd.ph": "输入股票代码 (如 MA, ABT, KO, MSFT)...",
+    "dd.try": "尝试搜索:",
+    "dd.fetching": "正在获取财务报表...",
+    "dd.error_title": "没有可用的财务数据",
+    "dd.error_desc": "ETF 或基金（如 SCHD, DGRW, IAU）无法提供企业财务报表。请使用“分红预测”标签来分析 ETF。",
+    "btn.annual": "年度",
+    "btn.quarterly": "季度",
+    "dd.metric": "财务指标:",
+    "btn.overview": "概览",
+    "btn.revenue": "营业收入",
+    "btn.net_income": "净利润",
+    "btn.eps": "每股收益 (EPS)",
+    "btn.expenses": "支出",
+    "btn.fcf": "自由现金流 (FCF)",
+    "btn.margin": "利润率",
+    "btn.rev_growth": "营收增长率",
+    "btn.div_growth": "分红增长率",
+    "btn.div_per_share": "每股分红",
+    "btn.payout_ratio": "派息比率",
+    "dd.range": "时间范围:",
+    "btn.all": "全部",
+    "dd.etf_price": "价格历史 — 过去 5 年月线",
+    "dd.etf_div": "每季度分红额",
+    "dd.forward": "远期预期",
+    "dd.forward_disclaimer": "远期预期仅限于今明两年的市场共识 + 长期增长率。yfinance 无法提供完整的未来五年分析师逐年预测数据；超过明年的部分均基于长期增长率进行数学推演，而非分析师原生数据。",
+    
+    // Modal
+    "modal.title": "添加持仓",
+    "modal.ticker": "股票代码",
+    "modal.shares": "股数",
+    "modal.avgcost": "平均成本 (USD)",
+  }
+};
+
+let currentLang = localStorage.getItem('salary2045_lang') || 'en';
+
+function t(key) {
+  return i18n[currentLang][key] || key;
+}
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  localStorage.setItem('salary2045_lang', currentLang);
+  updateUI();
+  // We need to re-render dynamic things if data is loaded
+  if (state.portfolio) {
+    renderHoldings();
+    renderDiversification();
+    renderPerformance();
+    renderAlerts();
+  }
+  if (state.income) { renderIncome(); renderCalendar(); }
+  if (state.goal) renderGoals();
+  if (state.portfolio && state.income && state.goal) renderOverview();
+  // update sidebar
+  buildSidebar();
+  switchTab(document.querySelector('.nav-item.active')?.dataset.tab || 'overview');
+}
+
+function updateUI() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+      el.placeholder = t(key);
+    } else {
+      el.innerHTML = t(key);
+    }
+  });
+  
+  const langBtn = document.getElementById('lang-toggle-btn');
+  if (langBtn) {
+    langBtn.innerHTML = currentLang === 'en' ? '🌐 EN/中' : '🌐 中/EN';
+  }
+}
+// ============================================================================
 // ══════════════════════════════════════════════════════════════════════════════
 // CONSTANTS & STATE
 // ══════════════════════════════════════════════════════════════════════════════
 
 const TABS = [
-  { id: 'overview',        name: 'Overview',           icon: '◈' },
-  { id: 'holdings',        name: 'Holdings',            icon: '◧' },
-  { id: 'diversification', name: 'Diversification',    icon: '◉' },
-  { id: 'income',          name: 'Income',              icon: '◎' },
-  { id: 'calendar',        name: 'Calendar',            icon: '▦' },
-  { id: 'goals',           name: 'Goals',               icon: '◬' },
-  { id: 'performance',     name: 'Performance',         icon: '◈' },
-  { id: 'alerts',          name: 'Alerts',              icon: '◆' },
-  { id: 'predictor',       name: 'Dividend Predictor',  icon: '◍', special: true },
-  { id: 'deepdive',        name: 'Stock Deep-Dive',     icon: '◔', special: true },
+  { id: 'overview',        nameKey: 'nav.overview',           icon: '◈' },
+  { id: 'holdings',        nameKey: 'nav.holdings',            icon: '◧' },
+  { id: 'diversification', nameKey: 'nav.diversification',    icon: '◉' },
+  { id: 'income',          nameKey: 'nav.income',              icon: '◎' },
+  { id: 'calendar',        nameKey: 'nav.calendar',            icon: '▦' },
+  { id: 'goals',           nameKey: 'nav.goals',               icon: '◬' },
+  { id: 'performance',     nameKey: 'nav.performance',         icon: '◈' },
+  { id: 'alerts',          nameKey: 'nav.alerts',              icon: '◆' },
+  { id: 'predictor',       nameKey: 'nav.predictor',  icon: '◍', special: true },
+  { id: 'deepdive',        nameKey: 'nav.deepdive',     icon: '◔', special: true },
 ];
 
 const SECTOR_COLORS = {
@@ -832,12 +1210,13 @@ function payoutRatioColor(v) {
 
 function buildSidebar() {
   const ul = $('nav-list');
-  TABS.forEach(t => {
+  ul.innerHTML = '';
+  TABS.forEach(tab => {
     const li = document.createElement('li');
-    li.className = 'nav-item' + (t.id === 'overview' ? ' active' : '') + (t.special ? ' predictor-item' : '');
-    li.dataset.tab = t.id;
-    li.innerHTML = `<span class="nav-icon">${t.icon}</span><span>${t.name}</span>`;
-    li.onclick = () => switchTab(t.id);
+    li.className = 'nav-item' + (tab.id === 'overview' ? ' active' : '') + (tab.special ? ' predictor-item' : '');
+    li.dataset.tab = tab.id;
+    li.innerHTML = `<span class="nav-icon">${tab.icon}</span><span>${t(tab.nameKey)}</span>`;
+    li.onclick = () => switchTab(tab.id);
     ul.appendChild(li);
   });
 }
@@ -917,34 +1296,34 @@ function renderOverview() {
   const glPct = m.totalGainLossPct;
   $('ov-cards').innerHTML = `
     <div class="card">
-      <div class="card-title">Portfolio Value</div>
+      <div class="card-title">${t('ov.portfolio_value')}</div>
       <div class="metric-val blue mono">${fmtUSD(m.totalMarketValue)}</div>
-      <div class="metric-sub">${glBadge(glPct)} ${fmtUSD(m.totalGainLoss, 2)} total G/L</div>
+      <div class="metric-sub">${glBadge(glPct)} ${fmtUSD(m.totalGainLoss, 2)} ${t('ov.total_gl')}</div>
     </div>
     <div class="card">
-      <div class="card-title">Annual Income</div>
+      <div class="card-title">${t('ov.annual_income')}</div>
       <div class="metric-val green mono">${fmtUSD(m.totalAnnualIncome)}/yr</div>
-      <div class="metric-sub">${fmtUSD(m.totalAnnualIncome/12, 2)}/month average</div>
+      <div class="metric-sub">${fmtUSD(m.totalAnnualIncome/12, 2)}${t('ov.month_avg')}</div>
     </div>
     <div class="card">
-      <div class="card-title">Yield on Cost</div>
+      <div class="card-title">${t('ov.yoc')}</div>
       <div class="metric-val mono">${fmtPct(m.portfolioYoC)}</div>
-      <div class="metric-sub">Based on cost basis</div>
+      <div class="metric-sub">${t('ov.cost_basis')}</div>
     </div>
     <div class="card">
-      <div class="card-title">Forward Yield</div>
+      <div class="card-title">${t('ov.fwd_yield')}</div>
       <div class="metric-val mono">${fmtPct(m.portfolioYield)}</div>
-      <div class="metric-sub">Based on market value</div>
+      <div class="metric-sub">${t('ov.market_value')}</div>
     </div>
     <div class="card">
-      <div class="card-title">Goal Progress</div>
+      <div class="card-title">${t('ov.goal_progress')}</div>
       <div class="metric-val mono">${(m.goalProgress*100).toFixed(1)}%</div>
       <div class="metric-sub">${fmtUSD(m.totalAnnualIncome)} / ${fmtUSD(m.goalAnnualIncome)}</div>
     </div>
     <div class="card">
-      <div class="card-title">Portfolio Beta</div>
+      <div class="card-title">${t('sd.beta')}</div>
       <div class="metric-val mono" style="color:var(--muted2)">${m.portfolioBeta != null ? fmtNum(m.portfolioBeta, 2) : '—'}</div>
-      <div class="metric-sub">vs S&P 500 = 1.00 · ${m.betaCoverage || '—'} holdings</div>
+      <div class="metric-sub">vs S&P 500 = 1.00 · ${m.betaCoverage || '—'} ${t('ov.holdings')}</div>
     </div>
   `;
 
@@ -953,15 +1332,16 @@ function renderOverview() {
   const missing = Math.max(0, m.goalAnnualIncome - m.totalAnnualIncome);
   const g = m.goalAnnualIncome;
   const ticks = [0, g*0.25, g*0.5, g*0.75, g].map(v => v >= 1000 ? '$' + (v/1000).toFixed(0) + 'k' : '$' + v.toFixed(0));
+  const _l = currentLang === 'zh';
   $('ov-goal-body').innerHTML = `
     <div style="font-size:36px;font-weight:800;font-family:'DM Mono',monospace;color:var(--blue);margin:12px 0 6px">${fmtUSD(m.totalAnnualIncome)}</div>
-    <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Annual passive income — Target: ${fmtUSD(g)}/yr</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:16px">${_l ? '年化被动收入 — 目标：' : 'Annual passive income — Target: '} ${fmtUSD(g)}/yr</div>
     <div class="progress-wrap" style="height:12px;margin-bottom:8px"><div class="progress-fill" style="width:${(prog*100).toFixed(1)}%"></div></div>
     <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:16px">
       ${ticks.map(t => `<span>${t}</span>`).join('')}
     </div>
     <div style="display:flex;justify-content:space-between;font-size:12px">
-      <span class="muted">Still needed:</span>
+      <span class="muted">${_l ? '目标缺口：' : 'Still needed:'}</span>
       <span class="mono font-bold" style="color:var(--amber)">${fmtUSD(missing)}/yr</span>
     </div>
   `;
@@ -984,18 +1364,19 @@ function renderOverview() {
     .sort((a, b) => a.nextDate - b.nextDate)
     .slice(0, 8);
 
+  const _lUpcoming = currentLang === 'zh';
   $('ov-upcoming').innerHTML = upcoming.map(u => `
     <div class="upcoming-item">
       <div style="display:flex;align-items:center;gap:8px">
         ${tickerAvatar(u.ticker, u.sector)}
         <div>
           <div style="font-weight:600;font-size:13px">${u.ticker}</div>
-          <div style="font-size:11px;color:var(--muted)">${u.nextDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+          <div style="font-size:11px;color:var(--muted)">${_lUpcoming ? u.nextDate.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric',year:'numeric'}) : u.nextDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
         </div>
       </div>
       <div style="text-align:right">
         <div class="mono" style="font-size:13px;font-weight:600">${fmtUSD(u.totalAmt)}</div>
-        <div style="font-size:11px;color:var(--muted)">${fmtUSD(u.amount,4)}/sh · <span class="badge badge-amber" style="font-size:10px">Forecast</span></div>
+        <div style="font-size:11px;color:var(--muted)">${fmtUSD(u.amount,4)}/sh · <span class="badge badge-amber" style="font-size:10px">${_lUpcoming ? '预测' : 'Forecast'}</span></div>
       </div>
     </div>
   `).join('');
@@ -1057,10 +1438,11 @@ function renderHoldings() {
   if (!state.portfolio) return;
   filterHoldings();
   const m = state.portfolio.metadata;
+  const _l = currentLang === 'zh';
   $('holdings-summary').innerHTML = `
-    <div class="card"><div class="card-title">Total Value</div><div class="metric-val blue mono">${fmtUSD(m.totalMarketValue)}</div></div>
-    <div class="card"><div class="card-title">Annual Income</div><div class="metric-val green mono">${fmtUSD(m.totalAnnualIncome)}</div></div>
-    <div class="card"><div class="card-title">Avg YoC</div><div class="metric-val mono">${fmtPct(m.portfolioYoC)}</div></div>
+    <div class="card"><div class="card-title">${_l ? '总市值' : 'Total Value'}</div><div class="metric-val blue mono">${fmtUSD(m.totalMarketValue)}</div></div>
+    <div class="card"><div class="card-title">${_l ? '年化收入' : 'Annual Income'}</div><div class="metric-val green mono">${fmtUSD(m.totalAnnualIncome)}</div></div>
+    <div class="card"><div class="card-title">${_l ? '平均成本收益率(YoC)' : 'Avg YoC'}</div><div class="metric-val mono">${fmtPct(m.portfolioYoC)}</div></div>
   `;
 }
 
@@ -1070,7 +1452,8 @@ function filterHoldings() {
   const filtered = state.portfolio.holdings.filter(h =>
     !q || h.ticker.toLowerCase().includes(q) || (h.name||'').toLowerCase().includes(q) || (h.sector||'').toLowerCase().includes(q)
   );
-  $('holdings-count').textContent = `${filtered.length} holding${filtered.length !== 1 ? 's' : ''}`;
+  const _l = currentLang === 'zh';
+  $('holdings-count').textContent = _l ? `${filtered.length} 个持仓` : `${filtered.length} holding${filtered.length !== 1 ? 's' : ''}`;
   renderHoldingsTable(filtered);
 }
 
@@ -1093,11 +1476,12 @@ function renderHoldingsTable(hs) {
     const pr = h.payoutRatio;
     const t = h.ticker.replace(/'/g, "\\'");
     const isCash = h.ticker === 'CASH';
+    const _l = currentLang === 'zh';
     if (isCash) {
       const cashColor = '#94a3b8';
       const cashAvatar = `<div class="ticker-avatar" style="background:${cashColor}22;color:${cashColor};font-size:14px">&#x1F4B5;</div>`;
       return `<tr>
-        <td><div class="ticker-cell">${cashAvatar}<div><div style="font-weight:600">CASH</div><div class="ticker-name">Cash (USD)</div></div></div></td>
+        <td><div class="ticker-cell">${cashAvatar}<div><div style="font-weight:600">CASH</div><div class="ticker-name">${_l ? '现金 (美元)' : 'Cash (USD)'}</div></div></div></td>
         <td>${sectorTag('Cash')}</td>
         <td class="text-right mono">${h.shares}</td>
         <td class="text-right mono">${fmtUSD(h.currentPrice)}</td>
@@ -1115,8 +1499,8 @@ function renderHoldingsTable(hs) {
         <td class="text-right mono" style="color:var(--muted)">—</td>
         <td class="text-right mono" style="color:var(--muted)">—</td>
         <td style="text-align:center;white-space:nowrap">
-          <button class="icon-btn" title="Edit" onclick="openEditModal('${t}', ${h.shares}, ${h.avgCost})">&#9999;&#65039;</button>
-          <button class="icon-btn" title="Delete" onclick="deleteHolding('${t}')">&#128465;&#65039;</button>
+          <button class="icon-btn" title="${_l ? '编辑' : 'Edit'}" onclick="openEditModal('${t}', ${h.shares}, ${h.avgCost})">&#9999;&#65039;</button>
+          <button class="icon-btn" title="${_l ? '删除' : 'Delete'}" onclick="deleteHolding('${t}')">&#128465;&#65039;</button>
         </td>
       </tr>`;
     }
@@ -1132,15 +1516,15 @@ function renderHoldingsTable(hs) {
       <td class="text-right mono">${h.yieldOnCost ? (h.yieldOnCost*100).toFixed(2)+'%' : '—'}</td>
       <td class="text-right mono">${h.dividendYield ? h.dividendYield.toFixed(2)+'%' : '—'}</td>
       <td class="text-right"><span style="color:${payoutRatioColor(pr)}" class="mono">${pr != null ? (pr*100).toFixed(1)+'%' : '—'}</span></td>
-      <td style="text-align:center">${(() => { const sg = h.safetyGrade; const sc = h.safetyScore; const sf = h.safetyFactors; const cls = (!sg||sg==='N/A') ? 'badge-muted' : (sg==='A'||sg==='B') ? 'badge-green' : sg==='C' ? 'badge-amber' : 'badge-red'; return `<span class="badge ${cls}" title="Score: ${sc!=null?sc:'N/A'} · ${sf||0} of 5 factors · Heuristic only">${sg||'—'}</span>`; })()}</td>
+      <td style="text-align:center">${(() => { const sg = h.safetyGrade; const sc = h.safetyScore; const sf = h.safetyFactors; const cls = (!sg||sg==='N/A') ? 'badge-muted' : (sg==='A'||sg==='B') ? 'badge-green' : sg==='C' ? 'badge-amber' : 'badge-red'; return `<span class="badge ${cls}" title="${_l ? `得分: ${sc!=null?sc:'N/A'} · ${sf||0}/5 因子 · 仅供参考` : `Score: ${sc!=null?sc:'N/A'} · ${sf||0} of 5 factors · Heuristic only`}">${sg||'—'}</span>`; })()}</td>
       <td class="text-right mono">${fmtNum(h.beta, 2)}</td>
       <td class="text-right mono">${h.fiveYearAvgYield != null ? h.fiveYearAvgYield.toFixed(2)+'%' : '—'}</td>
       <td class="text-right mono">${(() => { const de = h.debtToEquity; if (de == null) return '—'; const n = de > 20 ? de/100 : de; return n.toFixed(2); })()}</td>
       <td class="text-right mono">${h.divCagr5y != null ? (h.divCagr5y>=0?'+':'')+(h.divCagr5y*100).toFixed(1)+'%' : '—'}</td>
-      <td class="text-right mono">${h.consecutiveIncreases != null ? h.consecutiveIncreases+'yr' : '—'}</td>
+      <td class="text-right mono">${h.consecutiveIncreases != null ? h.consecutiveIncreases+(_l ? '年' : 'yr') : '—'}</td>
       <td style="text-align:center;white-space:nowrap">
-        <button class="icon-btn" title="Edit" onclick="openEditModal('${t}', ${h.shares}, ${h.avgCost})">&#9999;&#65039;</button>
-        <button class="icon-btn" title="Delete" onclick="deleteHolding('${t}')">&#128465;&#65039;</button>
+        <button class="icon-btn" title="${_l ? '编辑' : 'Edit'}" onclick="openEditModal('${t}', ${h.shares}, ${h.avgCost})">&#9999;&#65039;</button>
+        <button class="icon-btn" title="${_l ? '删除' : 'Delete'}" onclick="deleteHolding('${t}')">&#128465;&#65039;</button>
       </td>
     </tr>`;
   }).join('');
@@ -1196,24 +1580,28 @@ function renderDiversification() {
     },
     options: {
       ...CHART_DEFAULTS, indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-      plugins: { ...CHART_DEFAULTS.plugins, tooltip: { ...CHART_DEFAULTS.plugins.tooltip, callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(1)}% of income` } } },
+      plugins: { ...CHART_DEFAULTS.plugins, tooltip: { ...CHART_DEFAULTS.plugins.tooltip, callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(1)}% ${currentLang === 'zh' ? '的收入' : 'of income'}` } } },
       scales: { x: { ...CHART_DEFAULTS.scales.x, max: 100, ticks: { ...CHART_DEFAULTS.scales.x.ticks, callback: v => v + '%' } }, y: { ...CHART_DEFAULTS.scales.y } }
     }
   });
 
   // Concentration risk table
+  const _l = currentLang === 'zh';
   $('conc-tbody').innerHTML = hs.sort((a,b) => (b.marketValue||0) - (a.marketValue||0)).map(h => {
     const mvPct = tmv > 0 ? h.marketValue/tmv : 0;
     const incPct = tai > 0 ? h.annualIncome/tai : 0;
-    const risk = mvPct > 0.2 ? 'High' : mvPct > 0.1 ? 'Medium' : 'Low';
-    const riskColor = { High: 'var(--red)', Medium: 'var(--amber)', Low: 'var(--green)' }[risk];
+    let riskLabel = '';
+    if (mvPct > 0.2) riskLabel = _l ? '高' : 'High';
+    else if (mvPct > 0.1) riskLabel = _l ? '中' : 'Medium';
+    else riskLabel = _l ? '低' : 'Low';
+    const riskColor = mvPct > 0.2 ? 'var(--red)' : mvPct > 0.1 ? 'var(--amber)' : 'var(--green)';
     return `<tr>
       <td><div class="ticker-cell">${tickerAvatar(h.ticker, h.sector)}<span style="font-weight:600">${h.ticker}</span></div></td>
       <td class="text-right mono">${fmtUSD(h.marketValue)}</td>
       <td class="text-right mono">${(mvPct*100).toFixed(1)}%</td>
       <td class="text-right mono green">${fmtUSD(h.annualIncome)}</td>
       <td class="text-right mono">${(incPct*100).toFixed(1)}%</td>
-      <td><span style="color:${riskColor};font-weight:600;font-size:12px">${risk}</span></td>
+      <td><span style="color:${riskColor};font-weight:600;font-size:12px">${riskLabel}</span></td>
     </tr>`;
   }).join('');
 
@@ -1377,13 +1765,14 @@ function renderGoals() {
   const milestones = gs.milestones;
   const prog = Math.min(tai / goal, 1);
 
-  $('goals-card-title').textContent = `Progress to ${fmtUSD(goal)}/yr — Salary 2045`;
+  const _l = currentLang === 'zh';
+  $('goals-card-title').textContent = _l ? `Salary 2045 目标进度 — ${fmtUSD(goal)}/年` : `Progress to ${fmtUSD(goal)}/yr — Salary 2045`;
 
   $('goals-progress-body').innerHTML = `
     <div style="font-size:48px;font-weight:800;font-family:'DM Mono',monospace;color:var(--blue);margin:8px 0">${fmtUSD(tai)}</div>
-    <div style="font-size:13px;color:var(--muted);margin-bottom:16px">per year — Target: ${fmtUSD(goal)}/yr</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:16px">${_l ? '每年 — 目标：' : 'per year — Target: '}${fmtUSD(goal)}/yr</div>
     <div class="progress-wrap" style="height:16px;margin-bottom:12px"><div class="progress-fill" style="width:${(prog*100).toFixed(1)}%"></div></div>
-    <div style="font-size:14px;color:var(--muted2)">Missing: <span class="mono font-bold" style="color:var(--amber)">${fmtUSD(Math.max(0, goal-tai))}/yr</span></div>
+    <div style="font-size:14px;color:var(--muted2)">${_l ? '缺口：' : 'Missing: '}<span class="mono font-bold" style="color:var(--amber)">${fmtUSD(Math.max(0, goal-tai))}/yr</span></div>
   `;
 
   $('goals-milestones').innerHTML = milestones.map(ms => {
@@ -1394,10 +1783,10 @@ function renderGoals() {
       </div>
       <div>
         <div style="font-weight:600;font-size:13px;color:${reached?'var(--green)':'var(--text)'}">$${(ms/1000).toFixed(0)}k/yr</div>
-        <div style="font-size:11px;color:var(--muted)">$${(ms/12).toFixed(0)}/month</div>
+        <div style="font-size:11px;color:var(--muted)">$${(ms/12).toFixed(0)}/${_l ? '月' : 'month'}</div>
       </div>
       <div style="margin-left:auto">
-        ${reached ? '<span class="badge badge-green">Reached</span>' : `<span class="badge badge-muted">${((tai/ms)*100).toFixed(0)}% there</span>`}
+        ${reached ? `<span class="badge badge-green">${_l ? '已达成' : 'Reached'}</span>` : `<span class="badge badge-muted">${((tai/ms)*100).toFixed(0)}% ${_l ? '达成率' : 'there'}</span>`}
       </div>
     </div>`;
   }).join('');
@@ -1434,9 +1823,10 @@ function updateGoalSim() {
   }
 
   const simGoal = _goalState().goal;
+  const _l = currentLang === 'zh';
   $('sim-result').innerHTML = goalYear
-    ? `<span class="green font-bold">Goal reached in ~${goalYear} years</span> · Projected income: ${fmtUSD(results[results.length-1].income)}/yr`
-    : `Goal not reached in ${years} years · Projected: ${fmtUSD(results[results.length-1].income)}/yr`;
+    ? `<span class="green font-bold">${_l ? `约 ${goalYear} 年后达成目标` : `Goal reached in ~${goalYear} years`}</span> · ${_l ? '预测被动收入：' : 'Projected income: '} ${fmtUSD(results[results.length-1].income)}/${_l ? '年' : 'yr'}`
+    : `${_l ? `${years} 年内未能达成目标` : `Goal not reached in ${years} years`} · ${_l ? '预测：' : 'Projected: '} ${fmtUSD(results[results.length-1].income)}/${_l ? '年' : 'yr'}`;
 
   destroyChart('sim');
   charts['sim'] = new Chart($('chart-sim'), {
@@ -1468,11 +1858,12 @@ function renderPerformance() {
   const best  = hs.reduce((a,b) => (a.gainLossPct||0) > (b.gainLossPct||0) ? a : b);
   const worst = hs.reduce((a,b) => (a.gainLossPct||0) < (b.gainLossPct||0) ? a : b);
 
+  const _l = currentLang === 'zh';
   $('perf-cards').innerHTML = `
-    <div class="card"><div class="card-title">Total G/L $</div><div class="metric-val mono ${glColor(m.totalGainLoss)}">${m.totalGainLoss>=0?'+':''}${fmtUSD(m.totalGainLoss)}</div></div>
-    <div class="card"><div class="card-title">Total G/L %</div><div class="metric-val mono ${glColor(m.totalGainLossPct)}">${m.totalGainLossPct>=0?'+':''}${fmtPct(m.totalGainLossPct)}</div></div>
-    <div class="card"><div class="card-title">Best Performer</div><div class="metric-val green mono">${best.ticker}</div><div class="metric-sub">${fmtPct(best.gainLossPct)} gain</div></div>
-    <div class="card"><div class="card-title">Worst Performer</div><div class="metric-val red mono">${worst.ticker}</div><div class="metric-sub">${fmtPct(worst.gainLossPct)} loss</div></div>
+    <div class="card"><div class="card-title">${_l ? '总盈亏额' : 'Total G/L $'}</div><div class="metric-val mono ${glColor(m.totalGainLoss)}">${m.totalGainLoss>=0?'+':''}${fmtUSD(m.totalGainLoss)}</div></div>
+    <div class="card"><div class="card-title">${_l ? '总盈亏率' : 'Total G/L %'}</div><div class="metric-val mono ${glColor(m.totalGainLossPct)}">${m.totalGainLossPct>=0?'+':''}${fmtPct(m.totalGainLossPct)}</div></div>
+    <div class="card"><div class="card-title">${_l ? '表现最佳' : 'Best Performer'}</div><div class="metric-val green mono">${best.ticker}</div><div class="metric-sub">${fmtPct(best.gainLossPct)} ${_l ? '涨幅' : 'gain'}</div></div>
+    <div class="card"><div class="card-title">${_l ? '表现最差' : 'Worst Performer'}</div><div class="metric-val red mono">${worst.ticker}</div><div class="metric-sub">${fmtPct(Math.abs(worst.gainLossPct))} ${_l ? '跌幅' : 'loss'}</div></div>
   `;
 
   // P&L bar chart
@@ -1532,32 +1923,35 @@ function renderAlerts() {
   const m  = state.portfolio.metadata;
   const alerts = [];
 
+  const _l = currentLang === 'zh';
+
   // Goal milestone
   const prog = m.goalProgress;
-  if (prog < 0.1) alerts.push({ type: 'blue', icon: '◎', title: 'Salary 2045 Goal: Early Stage', desc: `Current annual income ${fmtUSD(m.totalAnnualIncome)} is ${(prog*100).toFixed(1)}% of the $24,000 goal. Focus on dividend growth and reinvestment.` });
-  else if (prog >= 0.5) alerts.push({ type: 'green', icon: '★', title: `Milestone: ${(prog*100).toFixed(0)}% to Goal!`, desc: `Annual income of ${fmtUSD(m.totalAnnualIncome)} — halfway to $24,000/yr passive income.` });
+  const g = m.goalAnnualIncome || 24000;
+  if (prog < 0.1) alerts.push({ type: 'blue', icon: '◎', title: _l ? 'Salary 2045 目标：起步阶段' : 'Salary 2045 Goal: Early Stage', desc: _l ? `当前年化收入 ${fmtUSD(m.totalAnnualIncome)} 仅占 $${fmtNum(g)} 目标的 ${(prog*100).toFixed(1)}%。重点关注股息增长和再投资。` : `Current annual income ${fmtUSD(m.totalAnnualIncome)} is ${(prog*100).toFixed(1)}% of the $${fmtNum(g)} goal. Focus on dividend growth and reinvestment.` });
+  else if (prog >= 0.5) alerts.push({ type: 'green', icon: '★', title: _l ? `里程碑：已达成目标 ${(prog*100).toFixed(0)}%！` : `Milestone: ${(prog*100).toFixed(0)}% to Goal!`, desc: _l ? `年化收入已达 ${fmtUSD(m.totalAnnualIncome)} — 距离 $${fmtNum(g)}/年 的被动收入目标已过半。` : `Annual income of ${fmtUSD(m.totalAnnualIncome)} — halfway to $${fmtNum(g)}/yr passive income.` });
 
   // Payout ratio warnings
   hs.filter(h => h.payoutRatio && h.payoutRatio > 0.75).forEach(h => {
-    alerts.push({ type: 'amber', icon: '⚠', title: `${h.ticker}: High Payout Ratio`, desc: `Payout ratio is ${(h.payoutRatio*100).toFixed(0)}% — above the 75% safety threshold. Monitor earnings closely for dividend sustainability.` });
+    alerts.push({ type: 'amber', icon: '⚠', title: _l ? `${h.ticker}: 派息率过高` : `${h.ticker}: High Payout Ratio`, desc: _l ? `派息率为 ${(h.payoutRatio*100).toFixed(0)}% — 高于 75% 的安全阈值。请密切监控盈利情况以确保股息的可持续性。` : `Payout ratio is ${(h.payoutRatio*100).toFixed(0)}% — above the 75% safety threshold. Monitor earnings closely for dividend sustainability.` });
   });
 
   // Large unrealized losses
   hs.filter(h => h.gainLossPct && h.gainLossPct < -0.15).forEach(h => {
-    alerts.push({ type: 'red', icon: '↓', title: `${h.ticker}: Large Unrealized Loss`, desc: `${h.ticker} is down ${(h.gainLossPct*100).toFixed(1)}% (${fmtUSD(h.gainLoss)}). Review fundamentals and consider averaging down if thesis is intact.` });
+    alerts.push({ type: 'red', icon: '↓', title: _l ? `${h.ticker}: 巨额浮亏` : `${h.ticker}: Large Unrealized Loss`, desc: _l ? `${h.ticker} 下跌了 ${(Math.abs(h.gainLossPct)*100).toFixed(1)}% (${fmtUSD(h.gainLoss)})。请重新评估基本面，若投资逻辑未变，可考虑逢低摊薄成本。` : `${h.ticker} is down ${(Math.abs(h.gainLossPct)*100).toFixed(1)}% (${fmtUSD(h.gainLoss)}). Review fundamentals and consider averaging down if thesis is intact.` });
   });
 
   // Concentration
   hs.filter(h => h.marketValue && m.totalMarketValue && h.marketValue/m.totalMarketValue > 0.2).forEach(h => {
-    alerts.push({ type: 'amber', icon: '◉', title: `${h.ticker}: High Concentration`, desc: `${h.ticker} represents ${(h.marketValue/m.totalMarketValue*100).toFixed(1)}% of portfolio value. Consider diversifying to reduce single-stock risk.` });
+    alerts.push({ type: 'amber', icon: '◉', title: _l ? `${h.ticker}: 仓位过度集中` : `${h.ticker}: High Concentration`, desc: _l ? `${h.ticker} 占投资组合总价值的 ${(h.marketValue/m.totalMarketValue*100).toFixed(1)}%。考虑分散投资以降低单只股票带来的风险。` : `${h.ticker} represents ${(h.marketValue/m.totalMarketValue*100).toFixed(1)}% of portfolio value. Consider diversifying to reduce single-stock risk.` });
   });
 
   // ETF div data quirk notice
   if (hs.find(h => h.ticker === 'SCHD' && h.annualDividendPerShare === 0)) {
-    alerts.push({ type: 'blue', icon: 'ℹ', title: 'ETF Dividend Data Note', desc: 'yfinance may return 0 for ETF annualDividendPerShare (SCHD, DGRW). Use Dividend History tab for actual payment data — this is a known data provider limitation.' });
+    alerts.push({ type: 'blue', icon: 'ℹ', title: _l ? 'ETF 股息数据提示' : 'ETF Dividend Data Note', desc: _l ? 'yfinance 接口可能会返回 ETF 的年度每股股息为 0 (如 SCHD, DGRW)。请以“股息历史”面板中的实际支付数据为准——这是已知的数据提供商限制。' : 'yfinance may return 0 for ETF annualDividendPerShare (SCHD, DGRW). Use Dividend History tab for actual payment data — this is a known data provider limitation.' });
   }
 
-  if (!alerts.length) alerts.push({ type: 'green', icon: '✓', title: 'Portfolio Looks Healthy', desc: 'No significant alerts detected. All payout ratios are within safe ranges and no large unrealized losses.' });
+  if (!alerts.length) alerts.push({ type: 'green', icon: '✓', title: _l ? '投资组合很健康' : 'Portfolio Looks Healthy', desc: _l ? '未检测到重大风险提示。所有股票的派息率均在安全范围内，且无巨额浮亏。' : 'No significant alerts detected. All payout ratios are within safe ranges and no large unrealized losses.' });
 
   $('alerts-list').innerHTML = alerts.map(a => `
     <div class="alert-card alert-${a.type}">
@@ -1743,50 +2137,50 @@ function renderPredictor(d) {
   $('pred-safety').innerHTML = `
     <div style="margin-bottom:14px">
       <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px">
-        <span class="muted">Payout Ratio</span>
+        <span class="muted">${_l ? '派息率' : 'Payout Ratio'}</span>
         <span class="mono font-bold" style="color:${prColor}">${prPct != null ? prPct.toFixed(1) + '%' : 'N/A'}</span>
       </div>
       <div class="progress-wrap"><div style="height:100%;border-radius:99px;background:${prColor};width:${Math.min(prPct||0,100)}%;transition:width .5s"></div></div>
       <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:4px"><span>0%</span><span style="color:var(--green)">60%</span><span style="color:var(--amber)">75%</span><span style="color:var(--red)">100%</span></div>
     </div>
     <div style="font-size:13px;margin-bottom:8px">
-      <span class="muted">Earnings Coverage: </span>
+      <span class="muted">${_l ? '盈利覆盖率：' : 'Earnings Coverage: '}</span>
       <span class="mono font-bold">${s.earningsCoverage != null ? s.earningsCoverage + 'x' : 'N/A'}</span>
     </div>
     <div style="font-size:13px">
-      <span class="muted">Annual Div/Share: </span>
+      <span class="muted">${_l ? '年度每股股息：' : 'Annual Div/Share: '}</span>
       <span class="mono font-bold green">${fmtUSD(s.annualDivPerShare)}</span>
     </div>
   `;
 
   // Confidence breakdown
   const cb = d.confidenceBreakdown;
-  $('pred-conf-title').textContent = `Confidence Breakdown — What drives the ${d.confidence}% score`;
+  $('pred-conf-title').textContent = _l ? `置信度分析 — 哪些因素决定了 ${d.confidence}% 的得分` : `Confidence Breakdown — What drives the ${d.confidence}% score`;
   $('pred-confidence').innerHTML = `
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
       <div style="padding:12px;background:var(--panel);border-radius:8px">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-          <span style="font-size:12px;font-weight:600">Consistency Score</span>
+          <span style="font-size:12px;font-weight:600">${_l ? '稳定性得分' : 'Consistency Score'}</span>
           <span class="mono green font-bold">+${cb.consistencyScore}</span>
         </div>
-        <div style="font-size:11px;color:var(--muted)">% of expected quarters where dividend was paid (${d.consistency}%)</div>
+        <div style="font-size:11px;color:var(--muted)">${_l ? '按时派发股息的预期季度百分比' : '% of expected quarters where dividend was paid'} (${d.consistency}%)</div>
       </div>
       <div style="padding:12px;background:var(--panel);border-radius:8px">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-          <span style="font-size:12px;font-weight:600">Streak Bonus</span>
+          <span style="font-size:12px;font-weight:600">${_l ? '连续增长奖励' : 'Streak Bonus'}</span>
           <span class="mono green font-bold">+${cb.streakBonus}</span>
         </div>
-        <div style="font-size:11px;color:var(--muted)">${d.consecutiveIncreases} consecutive years of increases × 5 pts (max 50)</div>
+        <div style="font-size:11px;color:var(--muted)">${d.consecutiveIncreases} ${_l ? '年连续增长 × 5 分 (最高 50 分)' : 'consecutive years of increases × 5 pts (max 50)'}</div>
       </div>
       <div style="padding:12px;background:var(--panel);border-radius:8px">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-          <span style="font-size:12px;font-weight:600">Cut Risk Penalty</span>
+          <span style="font-size:12px;font-weight:600">${_l ? '削减风险惩罚' : 'Cut Risk Penalty'}</span>
           <span class="mono ${cb.cutRiskPenalty > 0 ? 'red' : 'muted'} font-bold">-${cb.cutRiskPenalty}</span>
         </div>
-        <div style="font-size:11px;color:var(--muted)">-25 pts if payout ratio > 75%${cb.cutRiskPenalty === 0 ? ' (not applied)' : ' (applied!)'}</div>
+        <div style="font-size:11px;color:var(--muted)">${_l ? '若派息率 > 75% 则扣 25 分' : '-25 pts if payout ratio > 75%'}${cb.cutRiskPenalty === 0 ? (_l ? ' (未应用)' : ' (not applied)') : (_l ? ' (已应用！)' : ' (applied!)')}</div>
       </div>
       <div style="padding:12px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:8px;display:flex;justify-content:space-between;align-items:center">
-        <span style="font-size:13px;font-weight:700">Final Score</span>
+        <span style="font-size:13px;font-weight:700">${_l ? '最终得分' : 'Final Score'}</span>
         <span class="mono font-bold" style="font-size:20px;color:var(--${confColor})">${d.confidence}% — ${d.confidenceTier}</span>
       </div>
     </div>
@@ -1802,17 +2196,18 @@ function updatePredSim() {
   const monthly = annual / 12;
   const yoc = d.currentPrice ? annDiv / d.currentPrice : null;
 
+  const _l = currentLang === 'zh';
   $('pred-sim-cards').innerHTML = `
     <div style="background:var(--panel);border-radius:8px;padding:10px">
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Annual Income</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">${_l ? '年化收入' : 'Annual Income'}</div>
       <div class="mono font-bold green" style="font-size:16px">${fmtUSD(annual)}</div>
     </div>
     <div style="background:var(--panel);border-radius:8px;padding:10px">
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Monthly Avg</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">${_l ? '平均月收' : 'Monthly Avg'}</div>
       <div class="mono font-bold" style="font-size:16px">${fmtUSD(monthly)}</div>
     </div>
     <div style="background:var(--panel);border-radius:8px;padding:10px">
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Fwd Yield</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">${_l ? '远期收益率' : 'Fwd Yield'}</div>
       <div class="mono font-bold" style="font-size:16px">${yoc ? (yoc*100).toFixed(2)+'%' : '—'}</div>
     </div>
   `;
@@ -1826,11 +2221,26 @@ let _modalMode = 'add'; // 'add' | 'edit'
 let _modalTicker = null;
 
 function showToast(msg, type = 'error') {
-  const t = $('error-toast');
-  t.className = `toast toast-${type}`;
-  t.innerHTML = `${msg}<div class="toast-progress"></div>`;
-  t.classList.add('show');
-  setTimeout(() => { t.classList.remove('show'); }, 4000);
+  let tMsg = t(msg);
+  if (tMsg === msg && currentLang === 'zh') {
+    tMsg = tMsg.replace(/already exists in portfolio/, '已存在于持仓中')
+               .replace(/not found/, '未找到')
+               .replace(/No dividend history for/, '没有分红历史:')
+               .replace(/Cannot fetch/, '无法获取:')
+               .replace(/Refresh failed:/, '刷新失败:')
+               .replace(/Network error — check server is running./, '网络错误 — 请检查服务器是否运行。')
+               .replace(/Holding added successfully./, '添加持仓成功。')
+               .replace(/Holding updated./, '更新持仓成功。')
+               .replace(/Delete failed/, '删除失败')
+               .replace(/Goal updated to/, '目标已更新为')
+               .replace(/Failed to load — retry\?/, '加载失败 — 重试？');
+  }
+
+  const tEl = $('error-toast');
+  tEl.className = `toast toast-${type}`;
+  tEl.innerHTML = `${tMsg}<div class="toast-progress"></div>`;
+  tEl.classList.add('show');
+  setTimeout(() => { tEl.classList.remove('show'); }, 4000);
 }
 
 function openAddModal() {
@@ -2758,6 +3168,7 @@ renderGoals = function() {
 // INIT
 // ══════════════════════════════════════════════════════════════════════════════
 
+updateUI();
 buildSidebar();
 fetchGoal();
 fetchPortfolio();

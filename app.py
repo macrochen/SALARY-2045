@@ -1541,6 +1541,6 @@ def api_goal_post():
 
 if __name__ == "__main__":
     print()
-    print("  Salary 2045 Tracker running at http://localhost:5000")
+    print("  Salary 2045 Tracker running at http://localhost:8080")
     print()
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=8080, debug=False)
