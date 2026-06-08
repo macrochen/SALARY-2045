@@ -2052,6 +2052,7 @@ function searchPredictor(ticker) {
 }
 
 function renderPredictor(d) {
+  const _l = currentLang === 'zh';
   // Header card
   const annDiv = d.safety.annualDivPerShare;
   const yld = d.currentPrice && annDiv ? (annDiv / d.currentPrice * 100).toFixed(2) : null;
